@@ -57,3 +57,45 @@ The request body must be in JSON format and include the following fields:
 ## Status Codes
 - **201**: User successfully registered.
 - **400**: Validation errors occurred.
+
+# User Registration, Login, and Profile API
+
+## Endpoints
+
+### **POST** `/users/register`
+
+... (existing documentation for `/users/register`)
+
+---
+
+### **POST** `/users/login`
+
+... (existing documentation for `/users/login`)
+
+---
+
+### **GET** `/users/profile`
+
+#### Description
+This endpoint allows an authenticated user to retrieve their profile information. The user's password is excluded from the response.
+
+#### Authentication
+This endpoint requires the user to be authenticated. A valid JWT token must be provided in the `Authorization` header or as a cookie.
+
+#### Headers
+- `Authorization`: Bearer `<JWT_TOKEN>` (if not using cookies).
+
+#### Responses
+
+##### Success
+- **Status Code**: 200 OK
+- **Response Body**:
+```json
+{
+  "_id": "USER_ID",
+  "fullname": {
+    "firstname": "John",
+    "lastname": "Doe"
+  },
+  "email": "john.doe@example.com"
+}
